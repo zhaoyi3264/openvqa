@@ -22,7 +22,7 @@ data/vqa/feats/val2014/
 data/vqa/feats/test2015/
 .idea/
 
-
+*tar.gz
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
