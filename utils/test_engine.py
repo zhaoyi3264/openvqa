@@ -13,7 +13,7 @@ from openvqa.datasets.dataset_loader import EvalLoader
 
 # Evaluation
 @torch.no_grad()
-def test_engine(__C, dataset, state_dict=None, validation=False):
+def test_engine(__C, dataset, state_dict=None, validation=False, cuda=True):
 
     # Load parameters
     if __C.CKPT_PATH is not None:
@@ -30,7 +30,10 @@ def test_engine(__C, dataset, state_dict=None, validation=False):
     if state_dict is None:
         # val_ckpt_flag = True
         print('Loading ckpt from: {}'.format(path))
-        state_dict = torch.load(path)['state_dict']
+        if cuda:
+            state_dict = torch.load(path)['state_dict']
+        else:
+            state_dict = torch.load(path, map_location=torch.device('cpu'))['state_dict']
         print('Finish!')
 
         if __C.N_GPU > 1:
@@ -52,12 +55,12 @@ def test_engine(__C, dataset, state_dict=None, validation=False):
         token_size,
         ans_size
     )
-    net.cuda()
+    if cuda:
+        net.cuda()
     net.eval()
 
     if __C.N_GPU > 1:
         net = nn.DataParallel(net, device_ids=__C.DEVICES)
-
     net.load_state_dict(state_dict)
 
     dataloader = Data.DataLoader(
@@ -80,11 +83,12 @@ def test_engine(__C, dataset, state_dict=None, validation=False):
             step,
             int(data_size / __C.EVAL_BATCH_SIZE),
         ), end='          ')
-
-        frcn_feat_iter = frcn_feat_iter.cuda()
-        grid_feat_iter = grid_feat_iter.cuda()
-        bbox_feat_iter = bbox_feat_iter.cuda()
-        ques_ix_iter = ques_ix_iter.cuda()
+        
+        if cuda:
+            frcn_feat_iter = frcn_feat_iter.cuda()
+            grid_feat_iter = grid_feat_iter.cuda()
+            bbox_feat_iter = bbox_feat_iter.cuda()
+            ques_ix_iter = ques_ix_iter.cuda()
 
         pred = net(
             frcn_feat_iter,
@@ -117,7 +121,6 @@ def test_engine(__C, dataset, state_dict=None, validation=False):
                 )
 
             pred_list.append(pred_np)
-
     print('')
     ans_ix_list = np.array(ans_ix_list).reshape(-1)
 
