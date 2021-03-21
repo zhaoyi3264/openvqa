@@ -7,11 +7,7 @@ from openvqa.models.model_loader import CfgLoader
 from utils.exec import Execution
 import argparse, yaml
 
-
-def parse_args():
-    '''
-    Parse input arguments
-    '''
+def create_parser():
     parser = argparse.ArgumentParser(description='OpenVQA Args')
 
     parser.add_argument('--RUN', dest='RUN_MODE',
@@ -131,8 +127,13 @@ def parse_args():
                       choices=['True', 'False'],
                       help='True: verbose print, False: simple print',
                       type=str)
+    return parser
 
-
+def parse_args():
+    '''
+    Parse input arguments
+    '''
+    parser = create_parser()
     args = parser.parse_args()
     return args
 
@@ -158,7 +159,3 @@ if __name__ == '__main__':
 
     execution = Execution(__C)
     execution.run(__C.RUN_MODE)
-
-
-
-
