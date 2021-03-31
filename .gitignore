@@ -17,12 +17,14 @@ data/gqa/raw/sceneGraphs/
 data/gqa/feats/gqa-frcn/
 data/gqa/feats/gqa-grid/
 data/vqa/raw/*.json
+data/vqa/raw/val2014/
 data/vqa/feats/train2014/
 data/vqa/feats/val2014/
 data/vqa/feats/test2015/
 .idea/
 
 *tar.gz
+*zip
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
