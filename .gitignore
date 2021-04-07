@@ -1,6 +1,7 @@
 ckpts/
 results/cache/*.json
 results/cache/*.txt
+results/cache/*.npz
 results/result_test/*.json
 results/result_test/*.txt
 results/pred/*.pkl
