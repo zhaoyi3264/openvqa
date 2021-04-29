@@ -1,10 +1,27 @@
+# A survey of three state-of-the-art VQA models
+
+Group 11: Zhaoyi Zhang, Richard Tang, Yiwu Zhong
+
+Report: TODO
+
+Our code are in the following notebooks:
+
+- [ban.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/ban.ipynb)
+- [ban_attention.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/ban_attention.ipynb)
+- [butd_attention.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/butd_attention.ipynb)
+- [mcan.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/mcan.ipynb)
+- [mcan_attention.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/mcan_attention.ipynb)
+- [validation_predictions.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/validation_predictions.ipynb)
+- [visualization.ipynb](https://github.com/zhaoyi3264/openvqa/blob/master/visualization.ipynb)
+
+All the contents below are from the original OpenVQA repositroy.
+
 # OpenVQA
 
 <div>
 	<a href="https://openvqa.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/openvqa/badge/?version=latest"/></a>
 	<a href="https://github.com/MILVLG"><img alt="powered-by MILVLG" src="https://img.shields.io/badge/powered%20by-MILVLG-orange.svg?style=flat&amp;colorA=E1523D&amp;colorB=007D8A"/></a>
 </div>
-
 OpenVQA is a general platform for visual question ansering (VQA) research, with implementing state-of-the-art approaches (e.g., [BUTD](https://arxiv.org/abs/1707.07998), [MFH](https://arxiv.org/abs/1708.03619), [BAN](https://arxiv.org/abs/1805.07932), [MCAN](https://arxiv.org/abs/1906.10770) and [MMNasNet](https://arxiv.org/pdf/2004.12070.pdf)) on different benchmark datasets like [VQA-v2](https://visualqa.org/), [GQA](https://cs.stanford.edu/people/dorarad/gqa/index.html) and [CLEVR](https://cs.stanford.edu/people/jcjohns/clevr/). Supports for more methods and datasets will be updated continuously.
 
 
