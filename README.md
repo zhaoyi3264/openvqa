@@ -2,7 +2,7 @@
 
 Group 11: Zhaoyi Zhang, Richard Tang, Yiwu Zhong
 
-Report: TODO
+Report: [report.pdf](https://github.com/zhaoyi3264/openvqa/blob/master/report.pdf)
 
 Our code are in the following notebooks:
 
